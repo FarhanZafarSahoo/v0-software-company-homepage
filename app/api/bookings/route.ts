@@ -1,155 +1,90 @@
-import { createClient } from "@/lib/supabase/server";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from 'next/server';
+import { AppointmentService } from '@/lib/appointments/service';
+import {
+  successResponse,
+  errorResponse,
+  validationErrorResponse,
+  conflictResponse,
+  serverErrorResponse,
+} from '@/lib/appointments/response';
+import { validateBookingData } from '@/lib/appointments/validation';
 
+/**
+ * POST /api/bookings
+ * Create a new booking/appointment
+ * 
+ * Request body:
+ * - name: string (required)
+ * - email: string (required)
+ * - scheduled_date: string (required, YYYY-MM-DD format)
+ * - scheduled_time: string (required, HH:MM format)
+ * - category_id: string (optional)
+ * - phone: string (optional)
+ * - company: string (optional)
+ * - timezone: string (optional, default: America/New_York)
+ * - meeting_type: 'video' | 'phone' | 'in_person' (optional, default: video)
+ * - message: string (optional)
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const {
-      category_id,
-      name,
-      email,
-      phone,
-      company,
-      scheduled_date,
-      scheduled_time,
-      timezone,
-      meeting_type,
-      message,
-    } = body;
 
-    if (!name || !email || !scheduled_date || !scheduled_time) {
-      return NextResponse.json(
-        { error: "Name, email, date, and time are required" },
-        { status: 400 }
-      );
+    // Validate request data
+    const validation = validateBookingData(body);
+    if ('errors' in validation) {
+      return validationErrorResponse(validation.errors);
     }
 
-    const supabase = await createClient();
+    const bookingData = validation;
 
-    // Check if slot is still available
-    const { data: existingBooking } = await supabase
-      .from("bookings")
-      .select("id")
-      .eq("scheduled_date", scheduled_date)
-      .eq("scheduled_time", scheduled_time)
-      .neq("status", "cancelled")
-      .single();
+    // Create booking
+    const booking = await AppointmentService.createBooking(bookingData);
 
-    if (existingBooking) {
-      return NextResponse.json(
-        { error: "This time slot is no longer available" },
-        { status: 409 }
-      );
-    }
-
-    // Check if date is blocked
-    const { data: blockedDate } = await supabase
-      .from("blocked_dates")
-      .select("id")
-      .eq("date", scheduled_date)
-      .single();
-
-    if (blockedDate) {
-      return NextResponse.json(
-        { error: "This date is not available for bookings" },
-        { status: 409 }
-      );
-    }
-
-    const { data, error } = await supabase
-      .from("bookings")
-      .insert({
-        category_id: category_id || null,
-        name,
-        email,
-        phone: phone || null,
-        company: company || null,
-        scheduled_date,
-        scheduled_time,
-        timezone: timezone || "America/New_York",
-        meeting_type: meeting_type || "video",
-        message: message || null,
-        status: "pending",
-      })
-      .select()
-      .single();
-
-    if (error) {
-      console.error("Error creating booking:", error);
-      return NextResponse.json(
-        { error: "Failed to create booking" },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({ success: true, data });
+    return successResponse(booking, 'Booking created successfully', 201);
   } catch (error) {
-    console.error("Booking submission error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    if (error instanceof Error) {
+      if (error.message.includes('no longer available')) {
+        return conflictResponse(error.message);
+      }
+      return errorResponse(error, 400);
+    }
+    return serverErrorResponse(error);
   }
 }
 
+/**
+ * GET /api/bookings
+ * Get available time slots for a specific date
+ * 
+ * Query parameters:
+ * - date: string (required, YYYY-MM-DD format)
+ * - buffer: number (optional, minutes, default: 15)
+ */
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const date = searchParams.get("date");
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const date = searchParams.get('date');
+    const buffer = searchParams.get('buffer');
 
-  if (!date) {
-    return NextResponse.json({ error: "Date is required" }, { status: 400 });
-  }
-
-  const supabase = await createClient();
-
-  // Get day of week (0 = Sunday, 1 = Monday, etc.)
-  const dayOfWeek = new Date(date).getDay();
-
-  // Get available slots for this day
-  const { data: slots } = await supabase
-    .from("available_slots")
-    .select("*")
-    .eq("day_of_week", dayOfWeek)
-    .eq("is_active", true);
-
-  // Get existing bookings for this date
-  const { data: bookings } = await supabase
-    .from("bookings")
-    .select("scheduled_time")
-    .eq("scheduled_date", date)
-    .neq("status", "cancelled");
-
-  // Check if date is blocked
-  const { data: blockedDate } = await supabase
-    .from("blocked_dates")
-    .select("id")
-    .eq("date", date)
-    .single();
-
-  if (blockedDate) {
-    return NextResponse.json({ available_times: [], blocked: true });
-  }
-
-  // Generate available time slots
-  const bookedTimes = new Set(bookings?.map((b) => b.scheduled_time) || []);
-  const availableTimes: string[] = [];
-
-  slots?.forEach((slot) => {
-    const start = slot.start_time.split(":").map(Number);
-    const end = slot.end_time.split(":").map(Number);
-    const startMinutes = start[0] * 60 + start[1];
-    const endMinutes = end[0] * 60 + end[1];
-
-    for (let time = startMinutes; time < endMinutes; time += 30) {
-      const hours = Math.floor(time / 60);
-      const minutes = time % 60;
-      const timeString = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:00`;
-
-      if (!bookedTimes.has(timeString)) {
-        availableTimes.push(timeString);
-      }
+    if (!date) {
+      return errorResponse('Date parameter is required', 400);
     }
-  });
 
-  return NextResponse.json({ available_times: availableTimes, blocked: false });
+    // Validate date format
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return errorResponse('Invalid date format. Use YYYY-MM-DD', 400);
+    }
+
+    const bufferMinutes = buffer ? parseInt(buffer, 10) : 15;
+
+    // Get available slots
+    const result = await AppointmentService.getAvailableSlotsForDate(date, bufferMinutes);
+
+    return successResponse(result, 'Available slots retrieved successfully');
+  } catch (error) {
+    if (error instanceof Error) {
+      return errorResponse(error.message, 400);
+    }
+    return serverErrorResponse(error);
+  }
 }
