@@ -4,6 +4,7 @@ import { ServicesSection } from "@/components/services-section"
 import { AboutSection } from "@/components/about-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { VideoTestimonialsSection } from "@/components/video-testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { ChatWidget } from "@/components/chat-widget"
 import { Footer } from "@/components/footer"
@@ -17,6 +18,7 @@ export default function HomePage() {
       <AboutSection />
       <PortfolioSection />
       <TestimonialsSection />
+      <VideoTestimonialsSection />
       <ContactSection />
       <Footer />
       <ChatWidget />

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar, ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -19,8 +19,21 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="contact" className="py-24 bg-background relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="mb-16">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get Started</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4">
+            Transform Your Business Today
+          </h2>
+          <p className="text-muted-foreground text-lg mt-4 max-w-2xl">
+            Let's discuss how NexaTech can accelerate your digital transformation. We'll respond within 24 hours.
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div>
@@ -96,81 +109,41 @@ export function ContactSection() {
             )}
           </div>
 
-          {/* Booking Section */}
-          <div className="bg-background rounded-2xl border border-border p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Calendar className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-foreground">Book a Strategy Call</h3>
-                <p className="text-muted-foreground">Pick a time that works best for you</p>
-              </div>
-            </div>
-
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Schedule a free 30-minute consultation with our team. We'll discuss your project requirements, 
-              timeline, and provide a preliminary estimate. No commitment required.
-            </p>
-
-            {/* Mock Calendar Widget */}
-            <div className="rounded-xl bg-muted/50 border border-border p-6 mb-6">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-semibold text-foreground">February 2026</span>
-                <div className="flex gap-2">
-                  <button className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-foreground hover:bg-muted/80">
-                    {"<"}
-                  </button>
-                  <button className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-foreground hover:bg-muted/80">
-                    {">"}
-                  </button>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
-                {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
-                  <div key={day} className="text-muted-foreground py-2">{day}</div>
+          {/* CTA Section */}
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl border border-primary/30 p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">What to Expect</h3>
+              <ul className="space-y-4">
+                {[
+                  "Free consultation to understand your needs",
+                  "Custom proposal within 48 hours",
+                  "Transparent pricing with no hidden fees",
+                  "Dedicated project manager assignment",
+                  "Weekly progress updates and reporting",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
                 ))}
-              </div>
-              
-              <div className="grid grid-cols-7 gap-1 text-center text-sm">
-                {Array.from({ length: 35 }, (_, i) => {
-                  const day = i - 5 // Offset for February 2026
-                  const isValid = day >= 1 && day <= 28
-                  const isToday = day === 3
-                  const isAvailable = isValid && [5, 6, 7, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21].includes(day)
-                  
-                  return (
-                    <button
-                      key={i}
-                      disabled={!isAvailable}
-                      className={`py-2 rounded-lg transition-colors ${
-                        isToday
-                          ? "bg-primary text-primary-foreground"
-                          : isAvailable
-                          ? "hover:bg-primary/20 text-foreground cursor-pointer"
-                          : isValid
-                          ? "text-muted-foreground/50"
-                          : "text-transparent"
-                      }`}
-                    >
-                      {isValid ? day : ""}
-                    </button>
-                  )
-                })}
-              </div>
+              </ul>
             </div>
 
-            <Button variant="outline" className="w-full border-border text-foreground hover:bg-muted bg-transparent">
-              Connect with Calendly
-            </Button>
-            
-            <p className="text-center text-sm text-muted-foreground mt-4">
-              Or email us directly at{" "}
-              <a href="mailto:hello@nexatech.com" className="text-primary hover:underline">
-                hello@nexatech.com
-              </a>
-            </p>
+            <div className="bg-card border border-primary/20 rounded-2xl p-8 text-center">
+              <p className="text-muted-foreground mb-4">Questions? Reach out directly</p>
+              <p className="text-sm mb-6">
+                <a href="mailto:hello@nexatech.com" className="text-primary hover:underline font-semibold">
+                  hello@nexatech.com
+                </a>
+                <br />
+                <a href="tel:+1234567890" className="text-primary hover:underline font-semibold">
+                  +1 (234) 567-890
+                </a>
+              </p>
+              <div className="pt-6 border-t border-primary/10">
+                <p className="text-xs text-muted-foreground">Response time: Within 24 hours</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
