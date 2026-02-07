@@ -98,13 +98,51 @@ export function AboutSection() {
           ))}
         </div>
 
-        {/* Trust Logos */}
-        <div className="mt-20 pt-16 border-t border-primary/10">
-          <p className="text-center text-muted-foreground mb-10 font-medium">Trusted by leading US enterprises</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-            {["Fortune 500", "Tech Leaders", "StartUps", "Healthcare", "Finance", "Retail"].map((category) => (
-              <div key={category} className="px-6 py-3 rounded-lg bg-muted/30 border border-primary/10 hover:border-primary/30 transition-colors">
-                <p className="font-semibold text-foreground text-sm">{category}</p>
+        {/* Enterprise Trust Section */}
+        <div className="mt-24 pt-20 border-t border-primary/10">
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Trusted by Leaders</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Serving America's Top Enterprises
+            </h3>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              From Fortune 500 companies to innovative startups, organizations across industries trust NexaTech for their most critical digital initiatives.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { name: "Fortune 500", desc: "Leading enterprises" },
+              { name: "Tech Unicorns", desc: "10B+ valuations" },
+              { name: "Healthcare Leaders", desc: "Healthcare innovation" },
+              { name: "Financial Services", desc: "Fintech solutions" },
+              { name: "E-Commerce Giants", desc: "Retail transformation" },
+              { name: "Enterprise SaaS", desc: "Software as a service" },
+            ].map((category) => (
+              <div
+                key={category.name}
+                className="group p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/60 hover:bg-card/80 transition-all duration-300 text-center cursor-pointer hover:-translate-y-1"
+              >
+                <p className="font-bold text-foreground mb-2 text-sm leading-tight">{category.name}</p>
+                <p className="text-xs text-muted-foreground">{category.desc}</p>
+                <div className="mt-3 pt-3 border-t border-primary/10 group-hover:border-primary/30 transition-colors">
+                  <div className="w-2 h-2 bg-primary rounded-full mx-auto group-hover:scale-150 transition-transform" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Stats */}
+          <div className="mt-12 grid md:grid-cols-4 gap-6">
+            {[
+              { value: "500+", label: "Enterprise Clients" },
+              { value: "1000+", label: "Successful Projects" },
+              { value: "50M+", label: "End Users Impacted" },
+              { value: "99.9%", label: "System Uptime" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center p-6 rounded-xl bg-primary/5 border border-primary/10">
+                <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</p>
+                <p className="text-muted-foreground text-sm">{stat.label}</p>
               </div>
             ))}
           </div>
