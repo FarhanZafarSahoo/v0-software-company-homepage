@@ -26,35 +26,39 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6 text-balance">
-            What our clients say about us
+    <section id="testimonials" className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Client Stories</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
+            Why Enterprise Leaders Trust Us
           </h2>
           <p className="text-muted-foreground text-lg">
-            Don't just take our word for it. Here's what industry leaders have to say about working with NexaTech.
+            See how we've helped industry leaders transform their businesses and achieve remarkable results
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="bg-muted/30 border-border hover:border-primary/30 transition-colors">
-              <CardContent className="p-6">
-                <Quote className="w-10 h-10 text-primary/20 mb-4" />
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {testimonials.map((testimonial, idx) => (
+            <Card key={testimonial.name} className="group bg-background border-primary/20 hover:border-primary/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <CardContent className="p-8">
+                <Quote className="w-8 h-8 text-primary/20 mb-4 group-hover:text-primary/40 transition-colors" />
                 
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-6">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
                 
-                <p className="text-foreground mb-6 leading-relaxed">{testimonial.content}</p>
+                <p className="text-foreground mb-8 leading-relaxed font-medium text-lg">{testimonial.content}</p>
                 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold">
+                <div className="flex items-center gap-4 pt-6 border-t border-primary/10">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-lg">
                       {testimonial.name.split(" ").map((n) => n[0]).join("")}
                     </span>
                   </div>
