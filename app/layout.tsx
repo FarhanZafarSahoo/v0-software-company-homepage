@@ -9,7 +9,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'NexaTech Solutions | Custom Software & UI/UX Design',
+  title: 'Inova Logics | Custom Software Developmemt & Automation',
   description: 'Leading software development company offering custom software, web & mobile app development, UI/UX design, and graphic design services. Trusted by US enterprises.',
   generator: 'v0.app',
   icons: {

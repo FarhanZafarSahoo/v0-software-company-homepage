@@ -6,50 +6,56 @@ import { Card, CardContent } from "@/components/ui/card"
 const testimonials = [
   {
     name: "Sarah Mitchell",
-    role: "CTO, TechVentures Inc",
-    company: "TechVentures",
-    content: "NexaTech delivered our enterprise platform 2 weeks ahead of schedule. Their technical expertise and attention to detail exceeded every expectation we had.",
-    result: "+40% Operational Efficiency",
-    rating: 5,
+    role: "CTO",
+    company: "Technology Services Firm",
+    content:
+      "The team demonstrated a strong understanding of enterprise architecture and delivery standards. Communication was consistent, and the project was delivered exactly as scoped. We appreciated their structured approach and technical depth.",
+    result: "Improved platform stability and scalability",
+    rating: 4,
   },
   {
     name: "Michael Chen",
-    role: "Founder, HealthFirst",
-    company: "HealthFirst",
-    content: "A complete game-changer. They transformed our vision into a mobile app our users absolutely love. The responsiveness and professionalism are unmatched in the industry.",
-    result: "$5M+ Series A Funding",
+    role: "Founder",
+    company: "Healthcare Startup",
+    content:
+      "They translated our product vision into a well-structured mobile application. The development process was transparent, and the team was responsive to feedback throughout each phase.",
+    result: "Successful product launch",
     rating: 5,
   },
   {
     name: "Emily Rodriguez",
-    role: "VP of Product, RetailMax",
-    company: "RetailMax",
-    content: "The UI/UX redesign completely transformed our e-commerce presence. Conversion rates jumped 35% in the first month. Outstanding partnership.",
-    result: "+35% Conversion Rate",
+    role: "VP of Product",
+    company: "Retail Company",
+    content:
+      "The UI/UX improvements made a noticeable difference in usability and customer engagement. Their designers worked closely with our internal team and delivered a clean, consistent experience.",
+    result: "Enhanced user experience",
     rating: 5,
   },
   {
     name: "David Park",
-    role: "VP Engineering, CloudScale",
-    company: "CloudScale",
-    content: "Exceptional technical team. They built our microservices architecture handling 10M+ daily transactions. Reliable, scalable, and cost-effective.",
-    result: "10M+ Daily Users",
+    role: "VP Engineering",
+    company: "Cloud Solutions Provider",
+    content:
+      "We partnered with them to modernize parts of our backend infrastructure. The team showed strong technical ownership and delivered scalable solutions aligned with our long-term roadmap.",
+    result: "Modernized system architecture",
     rating: 5,
   },
   {
     name: "Jessica Williams",
-    role: "CEO, DataFlow Analytics",
-    company: "DataFlow",
-    content: "NexaTech understood our complex requirements and delivered a cutting-edge analytics platform. ROI exceeded projections by 50%.",
-    result: "+50% ROI Growth",
-    rating: 5,
+    role: "CEO",
+    company: "Data Analytics Company",
+    content:
+      "They took time to understand our requirements before proposing solutions. The final platform met both our technical and business expectations.",
+    result: "Streamlined analytics platform",
+    rating: 4,
   },
   {
     name: "James Thompson",
-    role: "Chief Product Officer, FinanceHub",
-    company: "FinanceHub",
-    content: "Security, compliance, and innovation all in one. NexaTech built our fintech platform to banking standards. Highly recommended.",
-    result: "SOC 2 Type II Certified",
+    role: "Product Lead",
+    company: "Financial Services Firm",
+    content:
+      "Security and reliability were critical for our project. Their team followed best practices and delivered a solution that aligned well with our compliance requirements.",
+    result: "Secure and compliant application",
     rating: 5,
   },
 ]
@@ -68,7 +74,7 @@ export function TestimonialsSection() {
             Proven Results from Industry Leaders
           </h2>
           <p className="text-muted-foreground text-lg">
-            Discover how enterprise clients transformed their businesses with NexaTech's solutions and achieved measurable ROI
+            Hear from clients about their experience working with our team and delivering reliable digital solutions
           </p>
         </div>
 
@@ -78,20 +84,20 @@ export function TestimonialsSection() {
               <CardContent className="p-8 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <Quote className="w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors" />
-                  <div className="flex gap-0.5">
+                  <div className="flex gap-0.5 opacity-80">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                   </div>
                 </div>
-                
+
                 <p className="text-foreground mb-6 leading-relaxed text-base flex-grow">{testimonial.content}</p>
-                
+
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
-                  <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-1">Business Impact</p>
+                  <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-1">Outcome</p>
                   <p className="text-primary font-bold">{testimonial.result}</p>
                 </div>
-                
+
                 <div className="flex items-center gap-4 pt-6 border-t border-primary/10">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-bold text-sm">

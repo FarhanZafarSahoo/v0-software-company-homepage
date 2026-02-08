@@ -7,34 +7,38 @@ const videoTestimonials = [
   {
     id: 1,
     name: "Sarah Chen",
-    role: "CEO, TechScale Inc",
-    title: "How NexaTech Accelerated Our Growth",
-    thumbnail: "bg-gradient-to-br from-blue-500 to-cyan-500",
-    description: "We needed a scalable platform and NexaTech delivered in 4 months. The results exceeded all expectations.",
+    role: "Chief Executive Officer",
+    title: "A Reliable Technology Partner",
+    thumbnail: "bg-gradient-to-br from-slate-700 to-slate-900",
+    description:
+      "We were looking for a long-term technology partner who could understand our business requirements and deliver consistently. The collaboration was structured, transparent, and aligned with our growth plans.",
   },
   {
     id: 2,
     name: "Marcus Johnson",
-    role: "VP Engineering, CloudFirst",
-    title: "Building Enterprise Solutions with Confidence",
-    thumbnail: "bg-gradient-to-br from-purple-500 to-pink-500",
-    description: "Their technical expertise and reliability gave us the confidence to scale to millions of users.",
+    role: "VP of Engineering",
+    title: "Strong Technical Execution",
+    thumbnail: "bg-gradient-to-br from-indigo-700 to-indigo-900",
+    description:
+      "Their engineering team integrated well with our internal processes. Code quality, documentation, and communication met our enterprise standards throughout the engagement.",
   },
   {
     id: 3,
     name: "Lisa Wang",
-    role: "Founder, HealthTech Solutions",
-    title: "Transforming Healthcare with Technology",
-    thumbnail: "bg-gradient-to-br from-emerald-500 to-teal-500",
-    description: "NexaTech understood the complexity of healthcare requirements and built a HIPAA-compliant platform.",
+    role: "Founder",
+    title: "Clear Process and Communication",
+    thumbnail: "bg-gradient-to-br from-emerald-700 to-emerald-900",
+    description:
+      "They took the time to understand domain-specific challenges and proposed solutions that were practical and scalable. The overall delivery process was smooth and predictable.",
   },
   {
     id: 4,
     name: "James Rodriguez",
-    role: "CTO, FinServe Global",
-    title: "Enterprise Security That Delivers",
-    thumbnail: "bg-gradient-to-br from-amber-500 to-orange-500",
-    description: "Security and compliance are non-negotiable. NexaTech delivered both without compromising on features.",
+    role: "Chief Technology Officer",
+    title: "Security and Compliance Focused Delivery",
+    thumbnail: "bg-gradient-to-br from-neutral-700 to-neutral-900",
+    description:
+      "Security and compliance were critical requirements for us. The team followed best practices and delivered a solution that aligned with our internal governance standards.",
   },
 ]
 
@@ -54,7 +58,7 @@ export function VideoTestimonialsSection() {
             See Success in Action
           </h2>
           <p className="text-muted-foreground text-lg">
-            Watch how industry leaders share their experience working with NexaTech and the tangible results they achieved
+            Hear directly from clients as they share their experience working with our team on complex digital initiatives
           </p>
         </div>
 
@@ -78,7 +82,7 @@ export function VideoTestimonialsSection() {
                       )}
                     </div>
                   </div>
-                  
+
                   {/* Video duration badge */}
                   <div className="absolute bottom-4 right-4 bg-black/50 px-3 py-1 rounded-lg text-white text-xs font-semibold">
                     2:45
@@ -105,7 +109,7 @@ export function VideoTestimonialsSection() {
                   {video.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">{video.description}</p>
-                
+
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                     <span className="text-primary font-bold text-sm">
@@ -125,12 +129,12 @@ export function VideoTestimonialsSection() {
         {/* CTA */}
         <div className="text-center">
           <p className="text-muted-foreground mb-6">
-            Ready to see your business transform like these industry leaders?
+            Looking for a reliable technology partner for your next initiative?
           </p>
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all font-semibold">
+          {/* <button className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all font-semibold">
             Schedule a Consultation
             <span>→</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

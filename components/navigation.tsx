@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import Image from "next/image";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -27,17 +28,21 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 shadow-lg" : "bg-transparent"
+        }`}
     >
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center group-hover:shadow-lg transition-all">
-              <span className="text-primary-foreground font-bold text-lg">N</span>
+            <div className="rounded-xl overflow-hidden group-hover:shadow-lg transition-all">
+              <Image
+                src="/invologics-logo.png"
+                alt="InovaLogics Logo"
+                width={285}
+                height={285}
+                className="object-contain"
+              />
             </div>
-            <span className="text-xl font-bold text-foreground">NexaTech</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-12">
@@ -54,12 +59,12 @@ export function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" className="text-foreground hover:text-primary hover:bg-primary/10 rounded-lg">
+            {/* <Button variant="ghost" className="text-foreground hover:text-primary hover:bg-primary/10 rounded-lg">
               Book a Consultation
             </Button>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg shadow-lg hover:shadow-xl transition-all">
               Get a Quote
-            </Button>
+            </Button> */}
           </div>
 
           <button

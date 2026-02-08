@@ -5,38 +5,43 @@ import { Badge } from "@/components/ui/badge"
 
 const projects = [
   {
-    title: "FinanceFlow Dashboard",
-    category: "Web Application",
-    description: "Enterprise financial management platform with real-time analytics and reporting.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    title: "Mindway: Tailored EAP",
+    category: "Web & Mobile Application",
+    description: "Mindway EAP is a comprehensive digital platform for employee mental health and wellbeing. It provides confidential, professional support, personalized resources, and 24/7 access to mindfulness tools and digital journals. Employees can manage stress, work challenges, and personal growth without compromising privacy, as all data is fully secure and employer-covered.",
+    tags: ["Tailwind", "Laravel", "PostgreSQL"],
     result: "40% increase in operational efficiency",
     color: "from-[#0A2E6E] to-[#00A8FF]",
+    media: "/projects/mindway-project.jpg",
   },
   {
-    title: "HealthTrack Mobile",
-    category: "Mobile App",
-    description: "HIPAA-compliant patient management app for healthcare providers.",
-    tags: ["React Native", "AWS", "GraphQL"],
+    title: "holo - Bid on Your Offer",
+    category: "Mobile Application",
+    description: "holo is Pakistan’s first all-in-one platform for hotel bookings and rides, enabling users to bid for the best price. The app delivers convenience, affordability, and exclusive member deals, creating a seamless travel and stay experience for users nationwide.",
+    tags: ["React Native", "Node.js", "Flutter", "Dart", "Tailwind"],
     result: "150K+ active users",
     color: "from-[#00A8FF] to-[#0A2E6E]",
+    media: "/projects/holo-project.png",
   },
   {
-    title: "RetailHub E-commerce",
+    title: "BiteTrucks - Food Delivery & Takeaway",
     category: "E-commerce Platform",
-    description: "Scalable multi-vendor marketplace with AI-powered recommendations.",
-    tags: ["Next.js", "Stripe", "MongoDB"],
+    description: "BiteTrucks is a scalable multi-vendor marketplace with AI-powered recommendations, providing users with fast, reliable access to quality takeaway and delivery food. The platform supports secure payments, vendor management, and personalized user experiences.",
+    tags: ["React.js", "Stripe", "PostgreSQL", "Laravel", "Tailwind"],
     result: "$2M+ in monthly transactions",
     color: "from-[#0A2E6E] to-[#00A8FF]",
+    media: "/projects/bitetruck.jpg",
   },
   {
-    title: "LogiTrack System",
+    title: "CRM & Automation (GHL Customized Dashboards)",
     category: "Enterprise Software",
-    description: "Real-time fleet management and logistics optimization platform.",
-    tags: ["Python", "IoT", "Machine Learning"],
+    description: "A real-time fleet management and logistics optimization platform that enhances operational efficiency. The system includes customized dashboards, automated workflows, and actionable insights, enabling businesses to reduce delivery times and improve service reliability.",
+    tags: ["TypeScript", "VanillaJS"],
     result: "30% reduction in delivery times",
     color: "from-[#00A8FF] to-[#0A2E6E]",
+    media: "/projects/crm-automation.png",
   },
 ]
+
 
 export function PortfolioSection() {
   return (
@@ -62,22 +67,20 @@ export function PortfolioSection() {
               key={project.title}
               className="group relative overflow-hidden rounded-2xl bg-card border border-primary/20 hover:border-primary/60 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
             >
-              {/* Gradient Background with Animation */}
-              <div className={`h-56 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 opacity-30" style={{
-                  backgroundImage: `linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)`,
-                  backgroundSize: '40px 40px'
-                }} />
-                <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <div className="w-24 h-24 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10" />
+              {/* Media Image */}
+              {project.media && (
+                <div className="h-56 w-full overflow-hidden rounded-t-2xl">
+                  <img
+                    src={project.media}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30">
+                    <ArrowUpRight className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20">
-                  <ArrowUpRight className="w-6 h-6 text-white" />
-                </div>
-              </div>
-              
+              )}
+
               {/* Content */}
               <div className="p-8">
                 <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
@@ -85,12 +88,12 @@ export function PortfolioSection() {
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
-                
+
                 <div className="bg-muted/40 rounded-lg p-4 mb-6 border border-primary/10">
                   <p className="text-sm font-semibold text-primary mb-1">Results Achieved</p>
                   <p className="text-foreground font-bold">{project.result}</p>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary border-primary/20">

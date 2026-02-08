@@ -6,33 +6,33 @@ import Image from "next/image"
 const features = [
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "SOC 2 compliant with industry-leading security and compliance standards",
+    title: "Enterprise-Grade Security",
+    description: "Secure development practices aligned with modern compliance and data protection standards",
   },
   {
     icon: Clock,
-    title: "On-Time Delivery",
-    description: "95% of projects delivered on or before deadline, guaranteed",
+    title: "Reliable Delivery",
+    description: "Structured project planning and execution to ensure predictable timelines",
   },
   {
     icon: Users,
-    title: "Dedicated Teams",
-    description: "Expert engineers assigned exclusively to your project success",
+    title: "Dedicated Delivery Teams",
+    description: "Skilled engineers, designers, and managers focused on your project goals",
   },
   {
     icon: TrendingUp,
-    title: "Proven Results",
-    description: "Average 40% improvement in operational efficiency for clients",
+    title: "Business-Driven Results",
+    description: "Technology solutions designed to improve efficiency, scalability, and performance",
   },
 ]
 
 const benefits = [
-  "12+ years of US market expertise",
-  "Agile & Scrum methodologies",
-  "24/7 dedicated support",
-  "Transparent communication",
-  "Competitive pricing models",
-  "Post-launch maintenance included",
+  "Global delivery experience across US, Europe & Middle East",
+  "Agile & Scrum-based development approach",
+  "Dedicated project and engineering teams",
+  "Clear and transparent communication",
+  "Flexible and scalable engagement models",
+  "Ongoing support and maintenance services",
 ]
 
 export function AboutSection() {
@@ -45,12 +45,12 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Left content */}
           <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Who We Are</span>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 leading-tight">
-              Innovation Meets Reliability in Enterprise Development
+              Trusted IT Partner for Scalable Digital Solutions
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              We transform ideas into market-ready solutions. Our proven process combines cutting-edge technology with strategic thinking to deliver software that drives measurable business results for US enterprises.
+              We help enterprises and growing businesses design, build, and scale reliable digital solutions. By combining modern technologies, user-focused design, and structured delivery processes, we deliver software solutions that support long-term business growth across global markets.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-3 mb-8">
@@ -66,9 +66,9 @@ export function AboutSection() {
           {/* Right image */}
           <div className="relative">
             <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20">
-              <Image 
-                src="/team-collaboration.jpg" 
-                alt="Team collaboration" 
+              <Image
+                src="/team-collaboration.jpg"
+                alt="Team collaboration"
                 fill
                 className="object-cover"
               />
@@ -76,8 +76,8 @@ export function AboutSection() {
             </div>
             <div className="absolute -bottom-6 -left-6 bg-card border border-primary/30 rounded-xl p-6 shadow-2xl max-w-xs">
               <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">Company Stats</p>
-              <p className="text-3xl font-bold text-foreground">200+</p>
-              <p className="text-sm text-muted-foreground">Enterprise Projects Delivered</p>
+              <p className="text-3xl font-bold text-foreground">50+</p>
+              <p className="text-sm text-muted-foreground">Digital Solutions Delivered</p>
             </div>
           </div>
         </div>
@@ -103,21 +103,21 @@ export function AboutSection() {
           <div className="text-center mb-16">
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Trusted by Leaders</p>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Serving America's Top Enterprises
+              Trusted by Businesses Across Industries
             </h3>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From Fortune 500 companies to innovative startups, organizations across industries trust NexaTech for their most critical digital initiatives.
+              From established enterprises to fast-growing SMEs, organizations across multiple industries rely on us to deliver secure, scalable, and high-quality digital solutions.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { name: "Fortune 500", desc: "Leading enterprises" },
-              { name: "Tech Unicorns", desc: "10B+ valuations" },
-              { name: "Healthcare Leaders", desc: "Healthcare innovation" },
-              { name: "Financial Services", desc: "Fintech solutions" },
-              { name: "E-Commerce Giants", desc: "Retail transformation" },
-              { name: "Enterprise SaaS", desc: "Software as a service" },
+              { name: "Enterprise Solutions", desc: "Large-scale systems & platforms" },
+              { name: "Technology Companies", desc: "Product & platform development" },
+              { name: "Healthcare & Life Sciences", desc: "Secure and compliant systems" },
+              { name: "Financial Services", desc: "Scalable & secure applications" },
+              { name: "Retail & E-Commerce", desc: "Digital commerce solutions" },
+              { name: "SaaS & Cloud Products", desc: "Subscription-based platforms" },
             ].map((category) => (
               <div
                 key={category.name}
@@ -135,10 +135,10 @@ export function AboutSection() {
           {/* Trust Stats */}
           <div className="mt-12 grid md:grid-cols-4 gap-6">
             {[
-              { value: "500+", label: "Enterprise Clients" },
-              { value: "1000+", label: "Successful Projects" },
-              { value: "50M+", label: "End Users Impacted" },
-              { value: "99.9%", label: "System Uptime" },
+              { value: "50+", label: "Clients Worldwide" },
+              { value: "100+", label: "Projects Delivered" },
+              { value: "20+", label: "Industries Served" },
+              { value: "99.9%", label: "Platform Reliability" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-6 rounded-xl bg-primary/5 border border-primary/10">
                 <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</p>

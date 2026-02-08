@@ -9,9 +9,9 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
       {/* Background with hero image */}
       <div className="absolute inset-0">
-        <Image 
-          src="/hero-tech-abstract.jpg" 
-          alt="Hero background" 
+        <Image
+          src="/hero-tech-abstract-back-ground.jpg"
+          alt="Hero background"
           fill
           className="object-cover opacity-30"
           priority
@@ -25,15 +25,16 @@ export function HeroSection() {
           <div className="text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm text-primary font-medium">Trusted by Fortune 500 Companies</span>
+              <span className="text-sm text-primary font-medium">Trusted by Enterprises & Growing Businesses</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
-              Enterprise Software Built for<span className="text-primary"> America</span>
+              Enterprise Software Built for<span className="text-primary"> Scale</span>
+
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Custom software solutions, mobile apps, and UI/UX design that transform how US enterprises operate. From startups to Fortune 500, we deliver innovation.
+              We deliver custom software solutions, mobile applications, and UI/UX design that help enterprises and SMEs build scalable, secure, and high-performance digital products across global markets.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -41,17 +42,17 @@ export function HeroSection() {
                 Start Your Project
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-6 text-base border-primary/50 text-foreground hover:bg-primary/10 rounded-lg">
-                Schedule Demo
-              </Button>
+              {/* <Button size="lg" variant="outline" className="px-8 py-6 text-base border-primary/50 text-foreground hover:bg-primary/10 rounded-lg">
+                Request Consultation
+              </Button> */}
             </div>
 
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-6">
               {[
-                { value: "200+", label: "Projects" },
-                { value: "98%", label: "Satisfaction" },
-                { value: "12+", label: "Years" },
+                { value: "100+", label: "Projects Delivered" },
+                { value: "Global", label: "Client Reach" },
+                { value: "3+", label: "Years Experience" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
@@ -64,9 +65,9 @@ export function HeroSection() {
           {/* Right image */}
           <div className="hidden md:block relative">
             <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20 shadow-2xl">
-              <Image 
-                src="/hero-tech-abstract.jpg" 
-                alt="Technology showcase" 
+              <Image
+                src="/hero-tech-abstract.jpg"
+                alt="Technology showcase"
                 fill
                 className="object-cover"
               />
@@ -74,8 +75,8 @@ export function HeroSection() {
             </div>
             {/* Floating card */}
             <div className="absolute -bottom-6 -right-6 bg-card border border-primary/30 rounded-xl p-4 shadow-xl max-w-xs">
-              <p className="text-sm font-semibold text-foreground mb-2">Award-Winning Team</p>
-              <p className="text-xs text-muted-foreground">Recognized for innovation and excellence in software development</p>
+              <p className="text-sm font-semibold text-foreground mb-2">Experienced Delivery Teams</p>
+              <p className="text-xs text-muted-foreground">Skilled engineers delivering reliable and scalable digital solutions</p>
             </div>
           </div>
         </div>

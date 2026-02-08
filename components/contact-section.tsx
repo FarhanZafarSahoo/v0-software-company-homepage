@@ -25,18 +25,17 @@ export function ContactSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get Started</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4">
             Transform Your Business Today
           </h2>
           <p className="text-muted-foreground text-lg mt-4 max-w-2xl">
-            Let's discuss how NexaTech can accelerate your digital transformation. We'll respond within 24 hours.
+            Let's discuss how InovaLogics can accelerate your digital transformation. We'll respond within 24 hours.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div>
+          <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl border border-primary/30 p-8">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Get Started</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
               Let's discuss your project
@@ -127,23 +126,24 @@ export function ContactSection() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="bg-card border border-primary/20 rounded-2xl p-8 text-center">
-              <p className="text-muted-foreground mb-4">Questions? Reach out directly</p>
-              <p className="text-sm mb-6">
-                <a href="mailto:hello@nexatech.com" className="text-primary hover:underline font-semibold">
-                  hello@nexatech.com
-                </a>
-                <br />
-                <a href="tel:+1234567890" className="text-primary hover:underline font-semibold">
-                  +1 (234) 567-890
-                </a>
-              </p>
-              <div className="pt-6 border-t border-primary/10">
-                <p className="text-xs text-muted-foreground">Response time: Within 24 hours</p>
+              <div className="mt-3 bg-card border border-primary/20 rounded-2xl p-8 text-center">
+                <p className="text-muted-foreground mb-4">Questions? Reach out directly</p>
+                <p className="text-sm mb-6">
+                  <a href="mailto:info@inovalogics.com" className="text-primary hover:underline font-semibold">
+                    info@inovalogics.com
+                  </a>
+                  <br />
+                  <a href="tel:+923066111376" className="text-primary hover:underline font-semibold">
+                    +92 (306) 611-1376
+                  </a>
+                </p>
+                <div className="pt-6 border-t border-primary/10">
+                  <p className="text-xs text-muted-foreground">Response time: Within 24 hours</p>
+                </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>

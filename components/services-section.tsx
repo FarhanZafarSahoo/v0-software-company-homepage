@@ -7,27 +7,43 @@ import { Button } from "@/components/ui/button"
 const services = [
   {
     icon: Code2,
-    title: "Software Development",
-    description: "Enterprise-grade custom software built with latest technologies",
-    features: ["Enterprise Applications", "Cloud Solutions", "API Development"],
+    title: "Custom Software Development",
+    description: "Scalable, secure, and high-performance software solutions tailored to complex business needs.",
+    features: [
+      "Enterprise Applications",
+      "Cloud-Based Solutions",
+      "API & System Integration",
+    ],
   },
   {
     icon: Smartphone,
-    title: "Web & Mobile Apps",
-    description: "Responsive applications delivering exceptional user experiences",
-    features: ["iOS & Android", "Progressive Web Apps", "Cross-Platform"],
+    title: "Web & Mobile Application Development",
+    description: "Modern web and mobile applications designed for performance, usability, and long-term scalability.",
+    features: [
+      "Responsive Web Applications",
+      "iOS & Android Development",
+      "Cross-Platform Solutions",
+    ],
   },
   {
     icon: Palette,
-    title: "UI/UX Design",
-    description: "User-centered design that converts and delights customers",
-    features: ["User Research", "Prototyping", "Design Systems"],
+    title: "UI/UX Design & Engineering",
+    description: "User-centric design solutions that improve usability, engagement, and conversion across platforms.",
+    features: [
+      "User Research & Journey Mapping",
+      "Wireframing & Prototyping",
+      "Design Systems & UI Standards",
+    ],
   },
   {
-    icon: PenTool,
-    title: "Brand & Graphics",
-    description: "Visual identities and marketing materials that stand out",
-    features: ["Brand Identity", "Marketing Collateral", "Illustrations"],
+    icon: Zap,
+    title: "Automation & Digital Optimization",
+    description: "Intelligent automation solutions that streamline workflows and enhance operational efficiency.",
+    features: [
+      "Business Process Automation",
+      "Workflow Optimization",
+      "System Orchestration",
+    ],
   },
 ]
 
@@ -42,10 +58,10 @@ export function ServicesSection() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Services</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            Complete Solutions for Your Digital Transformation
+            End-to-End IT Services for Digital Transformation
           </h2>
           <p className="text-muted-foreground text-lg">
-            From concept to launch, we provide end-to-end technology solutions tailored for success
+            From strategy and design to development and optimization, we deliver end-to-end IT services that support scalable and secure digital transformation.
           </p>
         </div>
 
@@ -59,10 +75,10 @@ export function ServicesSection() {
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all">
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>
-                
+
                 <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{service.description}</p>
-                
+
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="text-xs text-muted-foreground flex items-center gap-2">
@@ -78,10 +94,10 @@ export function ServicesSection() {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 rounded-lg group">
-            Explore All Services
+          {/* <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 rounded-lg group">
+            View Our Capabilities
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>

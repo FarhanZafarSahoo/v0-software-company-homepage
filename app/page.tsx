@@ -6,7 +6,7 @@ import { PortfolioSection } from "@/components/portfolio-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { VideoTestimonialsSection } from "@/components/video-testimonials-section"
 import { ContactSection } from "@/components/contact-section"
-import { ChatWidget } from "@/components/chat-widget"
+// import { ChatWidget } from "@/components/chat-widget"
 import { Footer } from "@/components/footer"
 
 export default function HomePage() {
@@ -21,7 +21,7 @@ export default function HomePage() {
       <VideoTestimonialsSection />
       <ContactSection />
       <Footer />
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </main>
   )
 }

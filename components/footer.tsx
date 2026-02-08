@@ -11,8 +11,6 @@ const footerLinks = {
   company: [
     { label: "About Us", href: "#about" },
     { label: "Portfolio", href: "#portfolio" },
-    { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
   ],
   resources: [
     { label: "Case Studies", href: "#" },
@@ -28,10 +26,10 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/inova-logics-a554533aa/", label: "LinkedIn" },
+  { icon: Twitter, href: "https://www.linkedin.com/in/inova-logics-a554533aa/", label: "Twitter" },
+  { icon: Github, href: "https://www.linkedin.com/in/inova-logics-a554533aa/", label: "GitHub" },
+  { icon: Instagram, href: "https://www.linkedin.com/in/inova-logics-a554533aa/", label: "Instagram" },
 ]
 
 export function Footer() {
@@ -48,7 +46,7 @@ export function Footer() {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">N</span>
               </div>
-              <span className="text-xl font-bold text-foreground">NexaTech</span>
+              <span className="text-xl font-bold text-foreground">InovaLogics</span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
               Building digital products that transform businesses. Your trusted partner for software development excellence.
@@ -96,7 +94,7 @@ export function Footer() {
           </div>
 
           {/* Resources */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
@@ -107,7 +105,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Legal */}
           <div>
@@ -128,12 +126,12 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} NexaTech Solutions. All rights reserved.
+              © {new Date().getFullYear()} InovaLogics Solutions. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-              <span>hello@nexatech.com</span>
-              <span>+1 (555) 123-4567</span>
-              <span>San Francisco, CA</span>
+              <span>info@inovalogics.com</span>
+              <span>+92 306 6111376</span>
+              <span>Chungi # 6 Multan Pakistan</span>
             </div>
           </div>
         </div>
