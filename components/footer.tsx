@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Linkedin, Twitter, Github, Instagram } from "lucide-react"
+import Image from "next/image";
 
 const footerLinks = {
   services: [
@@ -42,11 +43,16 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">N</span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="rounded-xl overflow-hidden group-hover:shadow-lg transition-all">
+                <Image
+                  src="/invologics-logo.png"
+                  alt="InovaLogics Logo"
+                  width={185}
+                  height={185}
+                  className="object-contain"
+                />
               </div>
-              <span className="text-xl font-bold text-foreground">InovaLogics</span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
               Building digital products that transform businesses. Your trusted partner for software development excellence.
