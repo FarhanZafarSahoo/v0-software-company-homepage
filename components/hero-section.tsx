@@ -23,22 +23,22 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <div className="text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6 animate-fade-in-down">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-sm text-primary font-medium">Trusted by Enterprises & Growing Businesses</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-in-up">
               Enterprise Software Built for<span className="text-primary"> Scale</span>
 
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               We deliver custom software solutions, mobile applications, and UI/UX design that help enterprises and SMEs build scalable, secure, and high-performance digital products across global markets.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base group rounded-lg">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base group rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/50">
                 Start Your Project
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -53,8 +53,8 @@ export function HeroSection() {
                 { value: "100+", label: "Projects Delivered" },
                 { value: "Global", label: "Client Reach" },
                 { value: "3+", label: "Years Experience" },
-              ].map((stat) => (
-                <div key={stat.label}>
+              ].map((stat, idx) => (
+                <div key={stat.label} className="stagger-item" style={{ animationDelay: `${0.4 + idx * 0.1}s` }}>
                   <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
                   <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </div>
@@ -63,18 +63,18 @@ export function HeroSection() {
           </div>
 
           {/* Right image */}
-          <div className="hidden md:block relative">
-            <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20 shadow-2xl">
+          <div className="hidden md:block relative animate-fade-in-right" style={{ animationDelay: '0.2s' }}>
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:border-primary/50">
               <Image
                 src="/hero-tech-abstract.jpg"
                 alt="Technology showcase"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             {/* Floating card */}
-            <div className="absolute -bottom-6 -right-6 bg-card border border-primary/30 rounded-xl p-4 shadow-xl max-w-xs">
+            <div className="absolute -bottom-6 -right-6 bg-card border border-primary/30 rounded-xl p-4 shadow-xl max-w-xs animate-float" style={{ animationDelay: '0.5s' }}>
               <p className="text-sm font-semibold text-foreground mb-2">Experienced Delivery Teams</p>
               <p className="text-xs text-muted-foreground">Skilled engineers delivering reliable and scalable digital solutions</p>
             </div>
