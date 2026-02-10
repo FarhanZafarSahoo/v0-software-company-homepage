@@ -3,6 +3,9 @@
 import { Star, Quote } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
+// Valid star ratings: 3.5, 4.0, 4.5, 5.0
+const VALID_RATINGS = [3.5, 4.0, 4.5, 5.0]
+
 const testimonials = [
   {
     name: "Sarah Mitchell",
@@ -11,7 +14,7 @@ const testimonials = [
     content:
       "The team demonstrated a strong understanding of enterprise architecture and delivery standards. Communication was consistent, and the project was delivered exactly as scoped. We appreciated their structured approach and technical depth.",
     result: "Improved platform stability and scalability",
-    rating: 4,
+    rating: 4.0,
   },
   {
     name: "Michael Chen",
@@ -20,7 +23,7 @@ const testimonials = [
     content:
       "They translated our product vision into a well-structured mobile application. The development process was transparent, and the team was responsive to feedback throughout each phase.",
     result: "Successful product launch",
-    rating: 5,
+    rating: 5.0,
   },
   {
     name: "Emily Rodriguez",
@@ -29,7 +32,7 @@ const testimonials = [
     content:
       "The UI/UX improvements made a noticeable difference in usability and customer engagement. Their designers worked closely with our internal team and delivered a clean, consistent experience.",
     result: "Enhanced user experience",
-    rating: 5,
+    rating: 4.5,
   },
   {
     name: "David Park",
@@ -38,7 +41,7 @@ const testimonials = [
     content:
       "We partnered with them to modernize parts of our backend infrastructure. The team showed strong technical ownership and delivered scalable solutions aligned with our long-term roadmap.",
     result: "Modernized system architecture",
-    rating: 5,
+    rating: 5.0,
   },
   {
     name: "Jessica Williams",
@@ -47,7 +50,7 @@ const testimonials = [
     content:
       "They took time to understand our requirements before proposing solutions. The final platform met both our technical and business expectations.",
     result: "Streamlined analytics platform",
-    rating: 4,
+    rating: 4.0,
   },
   {
     name: "James Thompson",
@@ -56,9 +59,46 @@ const testimonials = [
     content:
       "Security and reliability were critical for our project. Their team followed best practices and delivered a solution that aligned well with our compliance requirements.",
     result: "Secure and compliant application",
-    rating: 5,
+    rating: 4.5,
   },
 ]
+
+// Helper function to render stars based on rating
+function StarRating({ rating }: { rating: number }) {
+  // Validate rating
+  if (!VALID_RATINGS.includes(rating)) {
+    console.warn(`Invalid rating: ${rating}. Using 4.0 as default.`)
+    return null
+  }
+
+  const fullStars = Math.floor(rating)
+  const hasHalfStar = rating % 1 !== 0
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+
+  return (
+    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+      {/* Full stars */}
+      {Array.from({ length: fullStars }).map((_, i) => (
+        <Star key={`full-${i}`} className="w-4 h-4 fill-[#FFC107] text-[#FFC107]" />
+      ))}
+
+      {/* Half star */}
+      {hasHalfStar && (
+        <div key="half" className="relative w-4 h-4">
+          <Star className="w-4 h-4 text-[#FFC107]" />
+          <div className="absolute inset-0 w-2 overflow-hidden">
+            <Star className="w-4 h-4 fill-[#FFC107] text-[#FFC107]" />
+          </div>
+        </div>
+      )}
+
+      {/* Empty stars */}
+      {Array.from({ length: emptyStars }).map((_, i) => (
+        <Star key={`empty-${i}`} className="w-4 h-4 text-muted-foreground" />
+      ))}
+    </div>
+  )
+}
 
 export function TestimonialsSection() {
   return (
@@ -84,11 +124,7 @@ export function TestimonialsSection() {
               <CardContent className="p-8 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <Quote className="w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors" />
-                  <div className="flex gap-0.5 opacity-80">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
+                  <StarRating rating={testimonial.rating} />
                 </div>
 
                 <p className="text-foreground mb-6 leading-relaxed text-base flex-grow">{testimonial.content}</p>
