@@ -59,18 +59,18 @@ export function PortfolioSection() {
   }
 
   return (
-    <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <section id="portfolio" className="py-32 bg-background relative overflow-hidden">
+      {/* Background elements with animation */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Work</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
+        <div className="max-w-2xl mx-auto text-center mb-20">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider animate-fade-in-down">Our Work</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 animate-fade-in-up">
             Enterprise Solutions Delivering Real Results
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Proven track record of transforming businesses with innovative technology solutions
           </p>
         </div>

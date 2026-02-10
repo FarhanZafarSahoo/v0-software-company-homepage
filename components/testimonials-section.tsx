@@ -102,25 +102,25 @@ function StarRating({ rating }: { rating: number }) {
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 bg-muted/30 relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <section id="testimonials" className="py-32 bg-muted/30 relative overflow-hidden">
+      {/* Background accents with animation */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Client Stories</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider animate-fade-in-down">Client Stories</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 animate-fade-in-up">
             Proven Results from Industry Leaders
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Hear from clients about their experience working with our team and delivering reliable digital solutions
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, idx) => (
-            <Card key={testimonial.name} className="group bg-background border-primary/20 hover:border-primary/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card key={testimonial.name} className="group stagger-item bg-background border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20" style={{ animationDelay: `${idx * 0.08}s` }}>
               <CardContent className="p-8 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <Quote className="w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors" />

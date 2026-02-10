@@ -37,14 +37,15 @@ const benefits = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-background relative overflow-hidden">
+    <section id="about" className="py-32 bg-background relative overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Left content */}
-          <div>
+          <div className="animate-fade-in-left">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Who We Are</span>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 leading-tight">
               Trusted IT Partner for Scalable Digital Solutions
@@ -64,17 +65,17 @@ export function AboutSection() {
           </div>
 
           {/* Right image */}
-          <div className="relative">
-            <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20">
+          <div className="relative animate-fade-in-right">
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all duration-500">
               <Image
                 src="/team-collaboration.jpg"
                 alt="Team collaboration"
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-card border border-primary/30 rounded-xl p-6 shadow-2xl max-w-xs">
+            <div className="absolute -bottom-6 -left-6 bg-card border border-primary/30 rounded-xl p-6 shadow-2xl max-w-xs animate-float" style={{ animationDelay: '0.5s' }}>
               <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">Company Stats</p>
               <p className="text-3xl font-bold text-foreground">50+</p>
               <p className="text-sm text-muted-foreground">Digital Solutions Delivered</p>
@@ -84,10 +85,11 @@ export function AboutSection() {
 
         {/* Features grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature) => (
+          {features.map((feature, idx) => (
             <div
               key={feature.title}
-              className="group p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/60 hover:bg-card/80 transition-all duration-300 cursor-pointer"
+              className="group stagger-item p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/60 hover:bg-card/80 transition-all duration-500 cursor-pointer hover:-translate-y-2 hover:shadow-lg"
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-primary/10 transition-all">
                 <feature.icon className="w-6 h-6 text-primary" />
@@ -99,7 +101,7 @@ export function AboutSection() {
         </div>
 
         {/* Enterprise Trust Section */}
-        <div className="mt-24 pt-20 border-t border-primary/10">
+        <div className="mt-24 pt-20 border-t border-primary/10 animate-fade-in-up">
           <div className="text-center mb-16">
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">Trusted by Leaders</p>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -118,10 +120,11 @@ export function AboutSection() {
               { name: "Financial Services", desc: "Scalable & secure applications" },
               { name: "Retail & E-Commerce", desc: "Digital commerce solutions" },
               { name: "SaaS & Cloud Products", desc: "Subscription-based platforms" },
-            ].map((category) => (
+            ].map((category, idx) => (
               <div
                 key={category.name}
-                className="group p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/60 hover:bg-card/80 transition-all duration-300 text-center cursor-pointer hover:-translate-y-1"
+                className="group stagger-item p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/60 hover:bg-card/80 transition-all duration-500 text-center cursor-pointer hover:-translate-y-2 hover:shadow-lg"
+                style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <p className="font-bold text-foreground mb-2 text-sm leading-tight">{category.name}</p>
                 <p className="text-xs text-muted-foreground">{category.desc}</p>
@@ -139,8 +142,8 @@ export function AboutSection() {
               { value: "100+", label: "Projects Delivered" },
               { value: "20+", label: "Industries Served" },
               { value: "99.9%", label: "Platform Reliability" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center p-6 rounded-xl bg-primary/5 border border-primary/10">
+            ].map((stat, idx) => (
+              <div key={stat.label} className="stagger-item text-center p-6 rounded-xl bg-primary/5 border border-primary/10 hover:border-primary/30 hover:bg-primary/10 transition-all duration-300" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</p>
                 <p className="text-muted-foreground text-sm">{stat.label}</p>
               </div>
