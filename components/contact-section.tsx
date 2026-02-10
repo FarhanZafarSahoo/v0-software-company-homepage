@@ -93,8 +93,38 @@ export function ContactSection() {
                         <SelectItem value="software">Software Development</SelectItem>
                         <SelectItem value="web-mobile">Web & Mobile Apps</SelectItem>
                         <SelectItem value="uiux">UI/UX Design</SelectItem>
-                        <SelectItem value="graphic">Graphic Design</SelectItem>
+                        <SelectItem value="automation">Automation & Optimization</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="budget" className="text-foreground">Budget Range</Label>
+                    <Select>
+                      <SelectTrigger className="bg-background border-border text-foreground">
+                        <SelectValue placeholder="Select budget range" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="budget-500-1000">$500–$1,000</SelectItem>
+                        <SelectItem value="budget-1000-5000">$1,000–$5,000</SelectItem>
+                        <SelectItem value="budget-5000-10000">$5,000–$10,000</SelectItem>
+                        <SelectItem value="budget-10000-plus">$10,000+</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="timeline" className="text-foreground">Project Timeline</Label>
+                    <Select>
+                      <SelectTrigger className="bg-background border-border text-foreground">
+                        <SelectValue placeholder="Select timeline" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="urgent">Urgent (1-2 weeks)</SelectItem>
+                        <SelectItem value="soon">Soon (1-2 months)</SelectItem>
+                        <SelectItem value="flexible">Flexible (3+ months)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
