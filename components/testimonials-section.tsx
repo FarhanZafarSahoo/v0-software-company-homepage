@@ -9,10 +9,10 @@ const VALID_RATINGS = [3.5, 4.0, 4.5, 5.0]
 const testimonials = [
   {
     name: "Sarah Mitchell",
-    role: "CTO",
+    role: "CEO",
     company: "Technology Services Firm",
     content:
-      "The team demonstrated a strong understanding of enterprise architecture and delivery standards. Communication was consistent, and the project was delivered exactly as scoped. We appreciated their structured approach and technical depth.",
+      "Inova Logics transformed our sales pipeline with intelligent automation. We saw immediate operational efficiency and measurable ROI",
     result: "Improved platform stability and scalability",
     rating: 4.0,
   },
@@ -102,7 +102,7 @@ function StarRating({ rating }: { rating: number }) {
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-32 bg-muted/30 relative overflow-hidden">
+    <section id="testimonials" className="py-32">
       {/* Background accents with animation */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />

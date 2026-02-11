@@ -19,17 +19,17 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-background relative overflow-hidden">
+    <section id="contact" className="py-24">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4">
-            Transform Your Business Today
+            Transform Your Business With Intelligent Technology
           </h2>
           <p className="text-muted-foreground text-lg mt-4 max-w-2xl">
-            Let's discuss how InovaLogics can accelerate your digital transformation. We'll respond within 24 hours.
+            Whether you're launching, scaling, or optimizing — we’re ready to build your next competitive advantage.
           </p>
         </div>
 

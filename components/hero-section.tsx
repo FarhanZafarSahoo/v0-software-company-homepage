@@ -29,22 +29,23 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-in-up">
-              Enterprise Software Built for<span className="text-primary"> Scale</span>
+              Enterprise Software & AI Solutions Built to<span className="text-primary"> Scale</span> Your Business
 
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              We deliver custom software solutions, mobile applications, and UI/UX design that help enterprises and SMEs build scalable, secure, and high-performance digital products across global markets.
+              We help growth-focused companies automate operations, increase revenue, and dominate their markets with custom software, AI systems, and smart automation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+
+              <Button size="lg" variant="outline" className="px-8 py-6 text-base border-primary/50 text-foreground hover:bg-primary/10 rounded-lg">
+                Book a Strategy Call
+              </Button>
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base group rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/50">
-                Start Your Project
+                View Our Work
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              {/* <Button size="lg" variant="outline" className="px-8 py-6 text-base border-primary/50 text-foreground hover:bg-primary/10 rounded-lg">
-                Request Consultation
-              </Button> */}
             </div>
 
             {/* Quick stats */}

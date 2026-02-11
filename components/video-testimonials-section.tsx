@@ -46,7 +46,7 @@ export function VideoTestimonialsSection() {
   const [playingId, setPlayingId] = useState<number | null>(null)
 
   return (
-    <section id="video-testimonials" className="py-24 bg-muted/30 relative overflow-hidden">
+    <section id="video-testimonials" className="py-24">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -55,7 +55,7 @@ export function VideoTestimonialsSection() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Video Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            See Success in Action
+            Explore Our Work
           </h2>
           <p className="text-muted-foreground text-lg">
             Hear directly from clients as they share their experience working with our team on complex digital initiatives
