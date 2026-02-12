@@ -146,7 +146,7 @@ export function AboutSection() {
               {/* Main Image Container */}
               <div className="relative aspect-square rounded-3xl overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500">
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/UGnbHrrjQTwhYLez.jpg"
+                  src="/projects/team-collaboration.jpg"
                   alt="Team collaboration"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -218,7 +218,7 @@ export function AboutSection() {
           <div className="relative z-10">
             {/* Header */}
             <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <p className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-4">Trusted by Leaders</p>
+              <p className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-4 eye-catching-heading client-badge">Trusted by Leaders</p>
               <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
                 Trusted by Businesses Across <span className="text-primary">Industries</span>
               </h3>

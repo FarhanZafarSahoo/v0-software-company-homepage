@@ -9,40 +9,40 @@ const projects = [
   {
     title: "Mindway: Tailored EAP",
     category: "Web & Mobile Application",
-    description: "Mindway EAP is a comprehensive digital platform for employee mental health and wellbeing. It provides confidential, professional support, personalized resources, and 24/7 access to mindfulness tools and digital journals. Employees can manage stress, work challenges, and personal growth without compromising privacy, as all data is fully secure and employer-covered.",
+    description: "Mindway EAP is a secure digital platform designed to enhance employee mental health and wellbeing. It offers confidential professional support, personalized self-care resources, and 24/7 access to mindfulness tools and digital journals, enabling employees to manage stress, workplace challenges, and personal growth while ensuring complete privacy and employer-covered access.",
     tags: ["Tailwind", "Laravel", "PostgreSQL"],
-    result: "40% increase in operational efficiency",
+    result: "40% improvement in employee wellbeing and engagement",
     color: "from-[#0A2E6E] to-[#00A8FF]",
     media: "/projects/mindway-project.jpg",
   },
   {
     title: "holo - Bid on Your Offer",
     category: "Mobile Application",
-    description: "holo is Pakistan's first all-in-one platform for hotel bookings and rides, enabling users to bid for the best price. The app delivers convenience, affordability, and exclusive member deals, creating a seamless travel and stay experience for users nationwide.",
+    description: "holo is Pakistan’s first integrated platform combining hotel bookings and ride services with a unique bidding model. The app empowers users to secure the best possible prices, delivering convenience, affordability, and exclusive member benefits through a seamless, user-centric travel experience.",
     tags: ["React Native", "Node.js", "Flutter", "Dart", "Tailwind"],
-    result: "150K+ active users",
+    result: "150K+ active users with strong retention growth",
     color: "from-[#00A8FF] to-[#0A2E6E]",
     media: "/projects/holo-project.png",
   },
   {
     title: "BiteTrucks - Food Delivery & Takeaway",
     category: "E-commerce Platform",
-    description: "BiteTrucks is a scalable multi-vendor marketplace with AI-powered recommendations, providing users with fast, reliable access to quality takeaway and delivery food. The platform supports secure payments, vendor management, and personalized user experiences.",
+    description: "BiteTrucks is a scalable multi-vendor food marketplace powered by AI-driven recommendations. The platform enables fast ordering, secure digital payments, and efficient vendor management while delivering personalized user experiences and reliable delivery operations.",
     tags: ["React.js", "Stripe", "PostgreSQL", "Laravel", "Tailwind"],
-    result: "$2M+ in monthly transactions",
+    result: "$2M+ in monthly transactions with consistent platform growth",
     color: "from-[#0A2E6E] to-[#00A8FF]",
     media: "/projects/bitetruck.jpg",
   },
   {
     title: "CRM & Automation (GHL Customized Dashboards)",
     category: "Enterprise Software",
-    description: "A real-time fleet management and logistics optimization platform that enhances operational efficiency. The system includes customized dashboards, automated workflows, and actionable insights, enabling businesses to reduce delivery times and improve service reliability.",
+    description: "A real-time fleet management and logistics optimization solution featuring customized dashboards, automated workflows, and actionable analytics. The system improves operational visibility, reduces inefficiencies, and enables data-driven decision-making for enhanced service reliability.",
     tags: ["TypeScript", "VanillaJS"],
-    result: "30% reduction in delivery times",
+    result: "30% reduction in delivery times and operational delays",
     color: "from-[#00A8FF] to-[#0A2E6E]",
     media: "/projects/crm-automation.png",
   },
-]
+];
 
 
 export function PortfolioSection() {
@@ -66,7 +66,7 @@ export function PortfolioSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-2xl mx-auto text-center mb-20">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider animate-fade-in-down">Our Work</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider animate-fade-in-down eye-catching-heading client-badge">Our Work</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 animate-fade-in-up">
             Enterprise Solutions Delivering Real Results
           </h2>

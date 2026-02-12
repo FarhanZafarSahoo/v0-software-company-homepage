@@ -10,7 +10,7 @@ export function HeroSection() {
       {/* Background with hero image */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-tech-abstract-back-ground.jpg"
+          src="/projects/sky-blue-network.gif"
           alt="Hero background"
           fill
           className="object-cover opacity-30"
@@ -25,7 +25,7 @@ export function HeroSection() {
           <div className="text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6 animate-fade-in-down">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm text-primary font-medium">Trusted by Enterprises & Growing Businesses</span>
+              <span className="text-sm text-primary font-medium client-badge-boarderless">Trusted by Enterprises & Growing Businesses</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6 animate-fade-in-up">

@@ -53,7 +53,7 @@ export function VideoTestimonialsSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Video Testimonials</span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider eye-catching-heading client-badge">Video Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
             Explore Our Work
           </h2>
@@ -128,7 +128,7 @@ export function VideoTestimonialsSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-muted-foreground mb-6">
+          <p className="text-muted-foreground mb-6 client-badge-boarderless">
             Looking for a reliable technology partner for your next initiative?
           </p>
           {/* <button className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all font-semibold">

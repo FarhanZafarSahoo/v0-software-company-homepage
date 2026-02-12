@@ -107,7 +107,7 @@ export function NewsletterSection() {
           {/* Trust Statement */}
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground">
-              Join <span className="text-primary font-semibold">5,000+</span> subscribers receiving weekly insights
+              Join <span className="text-primary font-semibold">500+</span> subscribers receiving weekly insights
             </p>
           </div>
         </div>

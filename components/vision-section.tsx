@@ -49,10 +49,10 @@ export function VisionSection() {
         {/* Animated gradient orbs */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        
+
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />
-        
+
         {/* Radial gradient vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,hsl(var(--background))_100%)] opacity-40" />
       </div>
@@ -66,27 +66,26 @@ export function VisionSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              <span className="text-primary font-bold text-xs uppercase tracking-widest">Your Success is Our Mission</span>
+              <span className="text-primary font-bold text-xs uppercase tracking-widest client-badge-boarderless">Your Success is Our Mission</span>
             </div>
           </div>
 
           {/* Main Content */}
           <div className="text-center space-y-8 mb-24 animate-in fade-in slide-in-from-bottom-6 duration-1000">
             <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-            Your vision deserves more than developers
+          Your vision isn’t just a project —
               <br />
               <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">it deserves strategists</span>
-                <span className="absolute bottom-3 left-0 w-full h-4 bg-primary/10 -rotate-1 -z-0"></span>
+                <span className="relative z-10 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">it’s a growth opportunity.</span>
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-           We combine engineering precision, AI intelligence, and business strategy to turn ideas into scalable digital assets.
+              That’s why we bring together elite engineering, intelligent automation, and strategic insight to build digital products designed for scale, performance, and real business results.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-7 rounded-full font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 group">
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -98,7 +97,7 @@ export function VisionSection() {
               >
                 Contact Us
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Premium Stats Grid with Logo Placeholders */}
@@ -115,7 +114,7 @@ export function VisionSection() {
                   className="group relative overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-6 cursor-pointer"
                 >
                   {/* Glow effect on hover */}
-                  <div 
+                  <div
                     className={`absolute inset-0 rounded-3xl bg-gradient-to-br opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 -z-10`}
                     style={{
                       background: `linear-gradient(135deg, ${stat.gradient})`,
@@ -142,13 +141,13 @@ export function VisionSection() {
                         }} />
 
                         {/* Icon Container */}
-                        <div 
+                        <div
                           className={`relative w-24 h-24 rounded-3xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 border border-primary/20 group-hover:border-primary/60`}
                           style={{
                             background: `linear-gradient(135deg, ${stat.color})`
                           }}
                         >
-                          <StatIcon 
+                          <StatIcon
                             className={`w-12 h-12 ${stat.iconColor} transition-all duration-500 group-hover:animate-pulse`}
                           />
                         </div>

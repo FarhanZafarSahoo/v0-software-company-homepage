@@ -31,7 +31,7 @@ const services = [
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
     tag: "Scalable",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/eoSLQcPeowZOjGIC.jpg",
+    image: "/projects/ai-web.jpg",
     bgPosition: "object-center"
   },
   {
@@ -45,7 +45,7 @@ const services = [
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
     tag: "Native",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/xucUROjoKzDPXSVP.jpg",
+    image: "/projects/saas-dev.jpg",
     bgPosition: "object-cover"
   },
   {
@@ -59,7 +59,7 @@ const services = [
     color: "from-orange-500/20 to-amber-500/20",
     iconColor: "text-orange-500",
     tag: "Creative",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/xSoZqXbHUEeiQrja.png",
+    image: "/projects/ai-business-automation.jpg",
     bgPosition: "object-cover"
   },
   {
@@ -73,16 +73,16 @@ const services = [
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
     tag: "Efficient",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/sxpmpqSdcsnJGOXt.jpg",
+    image: "/projects/ghl-service.png",
     bgPosition: "object-cover"
   },
 ]
 
 const valueProps = [
-  { icon: ShieldCheck, title: "✔ Enterprise SecurityResults-Driven Approach", desc: "We build with ROI in mind — every feature serves a measurable purpose." },
-  { icon: BarChart3, title: "✔ Automation First Strategy", desc: "We eliminate inefficiencies and scale your business through smart systems." },
-  { icon: Globe, title: "✔ Enterprise-Grade Security", desc: "Your data, systems, and infrastructure are protected at every level." },
-  { icon: Rocket, title: "✔ Long-Term Partnership", desc: "We don’t just deliver projects — we build ongoing growth partnerships." },
+  { icon: ShieldCheck, title: "Enterprise SecurityResults-Driven Approach", desc: "We build with ROI in mind — every feature serves a measurable purpose." },
+  { icon: BarChart3, title: "Automation First Strategy", desc: "We eliminate inefficiencies and scale your business through smart systems." },
+  { icon: Globe, title: "Enterprise-Grade Security", desc: "Your data, systems, and infrastructure are protected at every level." },
+  { icon: Rocket, title: "Long-Term Partnership", desc: "We don’t just deliver projects — we build ongoing growth partnerships." },
 ]
 export function ServicesSection() {
   return (
@@ -105,14 +105,14 @@ export function ServicesSection() {
           <div className="relative h-96 md:h-[500px] w-full overflow-hidden rounded-3xl">
             {/* Background Image */}
             <img
-              src="/projects/blue-green.gif"
+              src="/projects/sky-blue-network.gif"
               alt="Digital Transformation"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute inset-0 from-background/90 via-background/70 to-transparent" />
+            <div className="absolute inset-0 from-background/80 to-transparent" />
 
             {/* Content Overlay */}
             <div className="absolute inset-0 flex flex-col justify-center items-start p-8 md:p-16">
@@ -133,10 +133,10 @@ export function ServicesSection() {
                   Inova Logics partners with startups, agencies, and enterprise teams to design and develop intelligent digital infrastructure.
 
                 </p>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                {/* <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
 
                   From AI-powered automation to scalable SaaS platforms, we create technology that works as hard as you do.
-                </p>
+                </p> */}
 
                 <div className="flex flex-wrap gap-4">
                   <Button size="lg" className="rounded-full px-8 py-7 text-base font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1">
@@ -154,7 +154,7 @@ export function ServicesSection() {
 
         {/* Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-24">
-          <p className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-6">Our Expertise</p>
+          <p className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-6 eye-catching-heading client-badge">Our Expertise</p>
           <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground mb-8 leading-[1.1]">
             Comprehensive IT <span className="relative inline-block">
               <span className="relative z-10 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">Solutions</span>
@@ -183,7 +183,7 @@ export function ServicesSection() {
                 />
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                <div className="absolute inset-0 from-card via-transparent to-transparent" />
 
                 {/* Floating Icon Badge */}
                 <div className={`absolute top-4 right-4 w-12 h-12 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-500 ring-1 ring-primary/20 backdrop-blur-md`}>

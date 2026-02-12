@@ -1,6 +1,7 @@
 "use client"
 
-import { Star, Quote } from "lucide-react"
+import React, { useState } from "react"
+import { Star, Quote, Sparkles } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 // Valid star ratings: 3.5, 4.0, 4.5, 5.0
@@ -8,64 +9,69 @@ const VALID_RATINGS = [3.5, 4.0, 4.5, 5.0]
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "CEO",
-    company: "Technology Services Firm",
-    content:
-      "Inova Logics transformed our sales pipeline with intelligent automation. We saw immediate operational efficiency and measurable ROI",
-    result: "Improved platform stability and scalability",
-    rating: 4.0,
-  },
-  {
     name: "Michael Chen",
-    role: "Founder",
-    company: "Healthcare Startup",
+    role: "Founder & CTO",
+    company: "Healthcare Innovation Startup",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/MCrNCCudMIwONjko.jpg",
     content:
-      "They translated our product vision into a well-structured mobile application. The development process was transparent, and the team was responsive to feedback throughout each phase.",
-    result: "Successful product launch",
+      "From concept to production-ready mobile application, they delivered exceptional results. The development team demonstrated deep technical knowledge, maintained transparent communication throughout, and collaborated seamlessly with our internal stakeholders. The final product exceeded our expectations.",
+    result: "Successful Product Launch in 6 Months",
     rating: 5.0,
   },
   {
     name: "Emily Rodriguez",
     role: "VP of Product",
-    company: "Retail Company",
+    company: "Retail & E-Commerce Leader",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/WFXBILXNaBrbKoJN.webp",
     content:
-      "The UI/UX improvements made a noticeable difference in usability and customer engagement. Their designers worked closely with our internal team and delivered a clean, consistent experience.",
-    result: "Enhanced user experience",
+      "The UI/UX redesign significantly enhanced user engagement and conversion rates. Their designers conducted thorough user research, created intuitive interfaces, and delivered a cohesive design system. Customer satisfaction scores improved by 35% post-launch.",
+    result: "35% Increase in User Engagement",
     rating: 4.5,
   },
   {
     name: "David Park",
     role: "VP Engineering",
-    company: "Cloud Solutions Provider",
+    company: "Cloud Infrastructure Provider",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/lncxgaghvZwPJmgr.jpg",
     content:
-      "We partnered with them to modernize parts of our backend infrastructure. The team showed strong technical ownership and delivered scalable solutions aligned with our long-term roadmap.",
-    result: "Modernized system architecture",
+      "Their infrastructure modernization initiative was transformative. The team architected scalable, cloud-native solutions with strong technical ownership and best-practice implementations. System uptime improved to 99.99%, and we achieved 50% cost optimization.",
+    result: "99.99% Uptime & 50% Cost Reduction",
     rating: 5.0,
   },
   {
     name: "Jessica Williams",
-    role: "CEO",
-    company: "Data Analytics Company",
+    role: "CEO & Founder",
+    company: "Data Analytics & Intelligence",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/saQxiYazzyTdpKNI.jpg",
     content:
-      "They took time to understand our requirements before proposing solutions. The final platform met both our technical and business expectations.",
-    result: "Streamlined analytics platform",
-    rating: 4.0,
+      "They invested time to deeply understand our business requirements and technical constraints. The resulting analytics platform met both our technical specifications and business objectives, enabling data-driven decision-making across the organization. Implementation was on-time and within budget.",
+    result: "Enterprise Analytics Platform Delivered",
+    rating: 4.5,
   },
   {
     name: "James Thompson",
     role: "Product Lead",
-    company: "Financial Services Firm",
+    company: "Financial Services Enterprise",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/wRaQhytSofSrLNDP.jpg",
     content:
-      "Security and reliability were critical for our project. Their team followed best practices and delivered a solution that aligned well with our compliance requirements.",
-    result: "Secure and compliant application",
-    rating: 4.5,
+      "Security and regulatory compliance were paramount to our project. Their team demonstrated exceptional expertise in implementing enterprise-grade security protocols, conducting thorough compliance audits, and following industry best practices. The solution passed all regulatory requirements without issues.",
+    result: "Full Regulatory Compliance Achieved",
+    rating: 4.0,
+  },
+  {
+    name: "Alexandra Carter",
+    role: "Lead Developer & Tech Lead",
+    company: "E-Commerce Innovation Startup",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663137821364/psEBkceSSeWsRGxc.jpg",
+    content:
+      "The development team delivered outstanding work with exceptional creativity, precision, and velocity. Their technical expertise, collaborative approach, and commitment to code quality made the entire project seamless. The platform launched successfully and has scaled to handle 10x traffic growth.",
+    result: "Successful Launch & 10x Scalability",
+    rating: 5.0,
   },
 ]
 
 // Helper function to render stars based on rating
 function StarRating({ rating }: { rating: number }) {
-  // Validate rating
   if (!VALID_RATINGS.includes(rating)) {
     console.warn(`Invalid rating: ${rating}. Using 4.0 as default.`)
     return null
@@ -77,12 +83,10 @@ function StarRating({ rating }: { rating: number }) {
 
   return (
     <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
-      {/* Full stars */}
       {Array.from({ length: fullStars }).map((_, i) => (
         <Star key={`full-${i}`} className="w-4 h-4 fill-[#FFC107] text-[#FFC107]" />
       ))}
 
-      {/* Half star */}
       {hasHalfStar && (
         <div key="half" className="relative w-4 h-4">
           <Star className="w-4 h-4 text-[#FFC107]" />
@@ -92,7 +96,6 @@ function StarRating({ rating }: { rating: number }) {
         </div>
       )}
 
-      {/* Empty stars */}
       {Array.from({ length: emptyStars }).map((_, i) => (
         <Star key={`empty-${i}`} className="w-4 h-4 text-muted-foreground" />
       ))}
@@ -101,48 +104,98 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function TestimonialsSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
   return (
-    <section id="testimonials" className="py-32">
-      {/* Background accents with animation */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+    <section id="testimonials" className="relative py-32 overflow-hidden bg-background">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />
+        
+        {/* Radial gradient vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,hsl(var(--background))_100%)] opacity-40" />
+      </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider animate-fade-in-down">Client Stories</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6 animate-fade-in-up">
-            Proven Results from Industry Leaders
+        {/* Header Section */}
+        <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md mb-8">
+            <Sparkles className="w-4 h-4 text-primary animate-spin" />
+            <span className="text-xs font-bold tracking-widest uppercase text-primary">Client Success Stories</span>
+          </div>
+
+          <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-8 leading-[1.1]">
+            Proven Results from <span className="relative inline-block">
+              <span className="relative z-10 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">Industry Leaders</span>
+              <span className="absolute bottom-3 left-0 w-full h-4 bg-primary/10 -rotate-1 -z-0"></span>
+            </span>
           </h2>
-          <p className="text-muted-foreground text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Hear from clients about their experience working with our team and delivering reliable digital solutions
+
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Hear directly from our clients about their transformative experiences working with our team and the measurable impact we've delivered to their organizations.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, idx) => (
-            <Card key={testimonial.name} className="group stagger-item bg-background border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20" style={{ animationDelay: `${idx * 0.08}s` }}>
-              <CardContent className="p-8 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
+            <Card
+              key={testimonial.name}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group relative overflow-hidden bg-card/50 border-primary/10 hover:border-primary/40 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-primary/10 backdrop-blur-md h-full flex flex-col stagger-item"
+              style={{ animationDelay: `${idx * 0.08}s` }}
+            >
+              {/* Decorative Background Gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <CardContent className="p-8 h-full flex flex-col relative z-10">
+                {/* Header with Quote Icon and Rating */}
+                <div className="flex items-center justify-between mb-6">
                   <Quote className="w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors" />
                   <StarRating rating={testimonial.rating} />
                 </div>
 
-                <p className="text-foreground mb-6 leading-relaxed text-base flex-grow">{testimonial.content}</p>
+                {/* Testimonial Content */}
+                <p className="text-foreground mb-8 leading-relaxed text-base flex-grow group-hover:text-foreground/90 transition-colors">
+                  "{testimonial.content}"
+                </p>
 
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
-                  <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-1">Outcome</p>
-                  <p className="text-primary font-bold">{testimonial.result}</p>
+                {/* Result Box */}
+                <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl p-4 mb-8 group-hover:border-primary/40 transition-colors">
+                  <p className="text-xs text-primary font-bold uppercase tracking-wider mb-2">Key Result</p>
+                  <p className="text-primary font-bold text-sm group-hover:text-primary/90 transition-colors">{testimonial.result}</p>
                 </div>
 
-                <div className="flex items-center gap-4 pt-6 border-t border-primary/10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-bold text-sm">
-                      {testimonial.name.split(" ").map((n) => n[0]).join("")}
-                    </span>
+                {/* Client Info with Professional Headshot */}
+                <div className="flex items-center gap-4 pt-6 border-t border-primary/10 group-hover:border-primary/30 transition-colors">
+                  {/* Professional Headshot */}
+                  <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden rounded-full border-2 border-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />
                   </div>
-                  <div className="min-w-0">
-                    <div className="font-semibold text-foreground text-sm">{testimonial.name}</div>
-                    <div className="text-xs text-muted-foreground truncate">{testimonial.role}</div>
+
+                  {/* Client Details */}
+                  <div className="min-w-0 flex-grow">
+                    <div className="font-bold text-foreground text-sm group-hover:text-primary transition-colors">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors">
+                      {testimonial.role}
+                    </div>
+                    <div className="text-xs text-primary/60 group-hover:text-primary transition-colors font-medium mt-1">
+                      {testimonial.company}
+                    </div>
                   </div>
                 </div>
               </CardContent>
